@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endee AI Semantic Search</title>
+    <!-- Modern Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated background elements -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <div class="container">
+        <header class="hero">
+            <div class="badge">
+                <span class="pulse"></span> Live Beta
+            </div>
+            <h1 class="main-title">Semantic Search powered by <br/><span class="gradient-text">Endee DB</span></h1>
+            <p class="subtitle">Query thousands of AI research papers using pure contextual meaning rather than exact keywords. Built for speed and semantic precision.</p>
+        </header>
+
+        <div class="search-panel glass-card">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search for 'efficient transformer models', 'RLHF', or 'few-shot learning'..." autocomplete="off">
+                <button type="submit" id="searchBtn" class="primary-btn">Analyze</button>
+            </div>
+            
+            <div class="search-controls">
+                <div class="control-group">
+                    <label for="kSlider"><i class="fa-solid fa-layer-group"></i> Retrieve Top <b><span id="kValue">3</span></b> Results</label>
+                    <input type="range" id="kSlider" min="1" max="10" value="3" class="slider">
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading-state hidden">
+            <div class="spinner"></div>
+            <p>Embedding Query & Exploring Vector Space...</p>
+        </div>
+
+        <div id="resultsContainer" class="results-list">
+            <!-- Results dynamically inserted here -->
+        </div>
+    </div>
+
+    <footer>
+        <p>Built with <i class="fa-solid fa-heart" style="color: #e11d48"></i> using <b>Endee</b> • High-Performance Vector Database</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -22,11 +22,18 @@ data/*
 
 # VS Code directory
 .vscode/
-.vscode/*
-
-# Frontend
-frontend/
-frontend/*
 
 # DS Store
 .DS_Store
+
+# Endee Data
+endee-data/
+
+# Python Virtual Environments
+venv/
+env/
+.env
+
+# Python Caches
+__pycache__/
+*.pyc

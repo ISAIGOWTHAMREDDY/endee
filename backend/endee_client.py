@@ -1,5 +1,6 @@
 import requests
 import json
+import msgpack
 from typing import List, Dict, Any, Optional
 
 class EndeeClient:
@@ -67,6 +68,17 @@ class EndeeClient:
         }
         resp = requests.post(url, headers=self.headers, json=payload)
         if resp.status_code == 200:
+            if resp.headers.get("Content-Type") == "application/msgpack":
+                data = msgpack.unpackb(resp.content, raw=False)
+                results = []
+                for item in data:
+                    if len(item) >= 3:
+                        results.append({
+                            "score": item[0],
+                            "id": item[1],
+                            "meta": item[2]
+                        })
+                return {"results": results}
             return resp.json()
         else:
             print(f"Failed to search: {resp.status_code} - {resp.text}")
